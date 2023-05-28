@@ -41,6 +41,17 @@ public class Rec_Basics {
         return LastOccurence(arr,key,i-1);
     }
 
+    public static void AllOccurences(int arr[], int key, int i) {
+        //base case
+        if (i == arr.length) {
+            return;
+        }
+        if (arr[i]==key){
+            System.out.print(i+" ");
+        }
+        AllOccurences(arr, key, i+1);
+    }
+
     //sum of first n natural numbers
     public static int Sum(int n){
         if(n==1){
@@ -66,7 +77,6 @@ public class Rec_Basics {
 
         //total ways
         int totWays= vertical + horizonatl;
-
         return totWays;
     }
 
@@ -89,10 +99,33 @@ public class Rec_Basics {
             removeDuplicates(str, idx+1, newStr.append(currChar), map);
         }
     }
-    public static void main(String[] args) {
-//        System.out.println(tillingProblem(1));
-        String str = "akki";
-        removeDuplicates(str,0,new StringBuilder(""), new boolean[26]);
 
+    public static int friendsPairing(int n){
+        // base case
+        if(n==1 || n==2){
+            return 1;
+        }
+
+        //choice
+        //single
+        int fnm1= friendsPairing(n-1);
+
+        //pair
+        int fnm2= friendsPairing(n-2);
+        int pair_ways= (n-1) * fnm2;
+
+        //total ways
+        int total_ways= fnm1 + pair_ways;
+        return total_ways;
+    }
+
+    public static void Q1(int N) {
+
+    }
+
+    public static void main(String[] args) {
+        int arr[ ] = {3, 2, 4, 5, 6, 2, 7, 2, 2};
+        int key =2 ;
+        AllOccurences(arr, key, 0);
     }
 }
