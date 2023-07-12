@@ -1,2 +1,2 @@
 # JAVA-Practice
-My all codes which i do in daily practice.
+The repository contains all the codes I write during my daily practice.
